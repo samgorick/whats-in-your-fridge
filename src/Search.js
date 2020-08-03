@@ -10,7 +10,7 @@ const Search = (props) => (
           <Form.Control
             type='text'
             name='ingredients'
-            placeholder="What's in your fridge?"
+            placeholder="Separate ingredients by commas!"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.ingredients}

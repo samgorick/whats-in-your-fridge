@@ -1,22 +1,28 @@
 import React from 'react';
-import LogoComponent from './LogoComponent'
-import Search from './Search'
+import LogoComponent from './LogoComponent';
+import Search from './Search';
+import RecipesContainer from './RecipesContainer'
 import './App.css';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { getRecipes } from './recipeActions';
 
-const handleSearch = values => {
-  console.log(values);
-};
+class App extends React.Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <LogoComponent />
-        <Search handleSearch={handleSearch} />
-      </header>
-    </div>
-  );
+  handleSearch = ingredients => {
+    this.props.getRecipes(ingredients);
+  }
+
+  render() {
+    return (
+      <div className='App'>
+        <header className='App-header'>
+          <LogoComponent />
+          <Search handleSearch={this.handleSearch} />
+          <RecipesContainer />
+        </header>
+      </div>
+    );
+  }
 }
 
-export default connect()(App);
+export default connect(null, { getRecipes })(App);
