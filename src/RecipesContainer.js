@@ -1,17 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Carousel } from 'react-bootstrap';
+import {Row, Col, Container } from 'react-bootstrap';
 import RecipeSummary from './RecipeSummary';
 
 class RecipesContainer extends React.Component {
   render() {
-    console.log(this.props)
     return this.props.recipes ? (
-      <Carousel>
+      <Container>
+        <Row>
         {this.props.recipes.map((recipe, index) => (
-          <RecipeSummary key={index} recipe={recipe} />
+          <Col xs={4} md={3}>
+            <RecipeSummary key={index} recipe={recipe} />
+          </Col>
         ))}
-      </Carousel>
+      </Row>
+      </Container>
+      
     ) : (null);
   }
 }

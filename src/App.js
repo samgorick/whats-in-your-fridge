@@ -17,9 +17,9 @@ class App extends React.Component {
       <div className='App'>
         <header className='App-header'>
           <LogoComponent />
+        </header>
           <Search handleSearch={this.handleSearch} />
           <RecipesContainer />
-        </header>
       </div>
     );
   }

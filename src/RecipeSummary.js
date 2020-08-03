@@ -1,18 +1,17 @@
 import React from 'react'
-import { Carousel } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 
 const RecipeSummary = props => (
-<Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=First slide&bg=373940"
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
+  <Card bg={'light'} text={'dark'}>
+  <Card.Img variant="top" src={props.recipe.image} />
+  <Card.Header>{props.recipe.title}</Card.Header>
+  <Card.Body>
+    <Card.Text>Ingredients</Card.Text>
+      {props.recipe.usedIngredients.map(ing => <Card.Text>{ing.original}</Card.Text>)}
+      {props.recipe.missedIngredients.map(ing => <Card.Text>{ing.original}</Card.Text>)}
+    <Button variant="primary">See recipe</Button>
+  </Card.Body>
+  </Card>
 )
 
 export default RecipeSummary
