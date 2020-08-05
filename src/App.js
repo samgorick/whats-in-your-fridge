@@ -5,6 +5,7 @@ import RecipesContainer from './RecipesContainer'
 import './App.css';
 import { connect } from 'react-redux';
 import { getRecipes } from './recipeActions';
+import { Container, Row, Col, CardGroup } from 'react-bootstrap'
 
 class App extends React.Component {
 
@@ -18,8 +19,18 @@ class App extends React.Component {
         <header className='App-header'>
           <LogoComponent />
         </header>
-          <Search handleSearch={this.handleSearch} />
-          <RecipesContainer />
+        <Container>
+          <Row>
+            <Col>
+              <Search handleSearch={this.handleSearch} />
+            </Col>
+          </Row>
+          <Row>
+            <CardGroup>
+              <RecipesContainer />
+            </CardGroup>
+          </Row>
+        </Container>
       </div>
     );
   }

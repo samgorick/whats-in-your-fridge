@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -8,7 +9,6 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import indexReducer from './indexReducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = createStore(indexReducer, composeWithDevTools(applyMiddleware(thunk)));
 

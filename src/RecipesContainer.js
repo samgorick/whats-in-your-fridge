@@ -1,20 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Row, Col, Container } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import RecipeSummary from './RecipeSummary';
 
 class RecipesContainer extends React.Component {
   render() {
     return this.props.recipes ? (
-      <Container>
-        <Row>
-        {this.props.recipes.map((recipe, index) => (
+        this.props.recipes.map((recipe, index) => (
           <Col xs={4} md={3}>
             <RecipeSummary key={index} recipe={recipe} />
           </Col>
-        ))}
-      </Row>
-      </Container>
+        ))
       
     ) : (null);
   }
