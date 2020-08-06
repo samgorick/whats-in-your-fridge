@@ -6,16 +6,17 @@ const RecipeSummary = props => (
     <Card.Img variant='top' src={props.recipe.image} />
     <Card.Header>{props.recipe.title}</Card.Header>
     <Card.Body>
-      <Card.Text>Ingredients</Card.Text>
+      <Card.Text>You already have:</Card.Text>
       {props.recipe.usedIngredients.map(ing => (
         <Card.Text>{ing.original}</Card.Text>
       ))}
+      <Card.Text>You'll need to get:</Card.Text>
       {props.recipe.missedIngredients.map(ing => (
         <Card.Text>{ing.original}</Card.Text>
       ))}
     </Card.Body>
     <Card.Footer>
-      <Button variant='primary'>See recipe</Button>
+      <Button variant='primary' onClick={() => props.getCurrentRecipe(props.recipe.id)}>See recipe</Button>
     </Card.Footer>
   </Card>
 );

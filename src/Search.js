@@ -16,7 +16,7 @@ const Search = (props) => (
             value={values.ingredients}
           />
         </Form.Group>
-        <Button variant='primary' type='submit'>
+        <Button variant='primary' type='submit' style={{marginBottom: 20}}>
           Get Recipes!
         </Button>
       </Form>
