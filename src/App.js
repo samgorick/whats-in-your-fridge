@@ -6,7 +6,7 @@ import CurrentRecipe from './CurrentRecipe'
 import './App.css';
 import { connect } from 'react-redux';
 import { getRecipes } from './recipeActions';
-import { Container, Row, Col, CardGroup } from 'react-bootstrap'
+import { Container, Grid, CardGroup } from 'semantic-ui-react'
 
 class App extends React.Component {
 
@@ -16,17 +16,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <LogoComponent />
-        </header>
-        <Container>
-          <Row>
-            <Col>
-              <Search handleSearch={this.handleSearch} />
-            </Col>
-          </Row>
-          <Row>
+      <div>
+        <LogoComponent />
+        <Grid textAlign='center' style={{ height: '100vh' }} >
+          <Grid.Column width="4">
+            <Search handleSearch={this.handleSearch} />
+          </Grid.Column>
+          <Grid.Row>
           {this.props.currentRecipe ? (
             <CurrentRecipe />
           ) : (
@@ -34,8 +30,8 @@ class App extends React.Component {
               <RecipesContainer />
             </CardGroup>
           )}
-          </Row>
-        </Container>
+          </Grid.Row>
+        </Grid>
       </div>
     );
   }
