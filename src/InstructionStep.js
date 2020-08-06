@@ -1,10 +1,6 @@
 import React from 'react';
-import { Item } from 'semantic-ui-react';
+import { List } from 'semantic-ui-react';
 
-const InstructionStep = props => (
-  <Item>
-    <Item.Content style={{color: 'white'}} verticalAlign='middle'>{props.step.step}</Item.Content>
-  </Item>
-);
+const InstructionStep = props => <List.Item>{props.step.step}</List.Item>;
 
 export default InstructionStep;
