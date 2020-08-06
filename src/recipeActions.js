@@ -4,7 +4,7 @@ const ENDPOINT = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=8
 
 export function getRecipes(ingredients) {
   return dispatch => {
-    fetch(`${ENDPOINT}&ingredients=${ingredients['ingredients']}`)
+    fetch(`${ENDPOINT}&ingredients=${ingredients['ingredients']}&number=8`)
       .then(resp => resp.json())
       .then(recipes => {
         dispatch({ type: GET_RECIPES, recipes: recipes})

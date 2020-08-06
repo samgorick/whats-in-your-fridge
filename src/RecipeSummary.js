@@ -1,23 +1,25 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Image } from 'semantic-ui-react';
 
 const RecipeSummary = props => (
-  <Card bg={'light'} text={'dark'} style={{ height: '100%', marginBottom: 15 }}>
-    <Card.Img variant='top' src={props.recipe.image} />
-    <Card.Header>{props.recipe.title}</Card.Header>
-    <Card.Body>
-      <Card.Text>You already have:</Card.Text>
+  <Card>
+    <Image src={props.recipe.image} />
+    <Card.Content>
+      <Card.Header>{props.recipe.title}</Card.Header>
+    </Card.Content>
+    <Card.Description>
+      You already have:
       {props.recipe.usedIngredients.map(ing => (
-        <Card.Text>{ing.original}</Card.Text>
+        ing.original
       ))}
-      <Card.Text>You'll need to get:</Card.Text>
+    </Card.Description>
+    <Card.Description>
+      You'll need to get:
       {props.recipe.missedIngredients.map(ing => (
-        <Card.Text>{ing.original}</Card.Text>
+        ing.original
       ))}
-    </Card.Body>
-    <Card.Footer>
-      <Button variant='primary' onClick={() => props.getCurrentRecipe(props.recipe.id)}>See recipe</Button>
-    </Card.Footer>
+    </Card.Description>
+      <Button attached="bottom" color="teal" onClick={() => props.getCurrentRecipe(props.recipe.id)}>See recipe</Button>
   </Card>
 );
 
