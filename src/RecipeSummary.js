@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Image } from 'semantic-ui-react';
+import { Card, Button, Image, List } from 'semantic-ui-react';
 
 const RecipeSummary = props => (
   <Card>
@@ -7,19 +7,25 @@ const RecipeSummary = props => (
     <Card.Content>
       <Card.Header>{props.recipe.title}</Card.Header>
     </Card.Content>
-    <Card.Description>
-      You already have:
-      {props.recipe.usedIngredients.map(ing => (
-        ing.original
-      ))}
+    <Card.Description textAlign='left'>
+      <strong>You already have:</strong>
+      <List bulleted>
+        {props.recipe.usedIngredients.map((ing, idx) => (
+          <List.Item key={idx}>{ing.original}</List.Item>
+        ))}
+      </List>
     </Card.Description>
-    <Card.Description>
-      You'll need to get:
-      {props.recipe.missedIngredients.map(ing => (
-        ing.original
-      ))}
+    <Card.Description textAlign='left' style={{ marginBottom: 10 }}>
+      <strong>You'll need to get:</strong>
+      <List bulleted>
+        {props.recipe.missedIngredients.map((ing, idx) => (
+          <List.Item key={idx}>{ing.original}</List.Item>
+        ))}
+      </List>
     </Card.Description>
-      <Button attached="bottom" color="teal" onClick={() => props.getCurrentRecipe(props.recipe.id)}>See recipe</Button>
+    <Button attached='bottom' color='teal' onClick={() => props.getCurrentRecipe(props.recipe.id, props.history)}>
+      See recipe
+    </Button>
   </Card>
 );
 

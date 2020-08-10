@@ -10,7 +10,7 @@ class RecipesContainer extends React.Component {
       <Grid.Column width='14'>
         <Card.Group itemsPerRow={4} stackable>
           {this.props.recipes.map((recipe, index) => (
-            <RecipeSummary key={index} recipe={recipe} getCurrentRecipe={this.props.getCurrentRecipe} />
+            <RecipeSummary key={index} recipe={recipe} getCurrentRecipe={this.props.getCurrentRecipe} history={this.props.history}/>
           ))}
         </Card.Group>
       </Grid.Column>

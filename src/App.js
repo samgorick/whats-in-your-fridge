@@ -20,9 +20,9 @@ class App extends React.Component {
         <LogoComponent />
         <Grid textAlign='center' style={{ height: '100vh' }}>
           <Switch>
-            <Route path='/recipes' component={RecipesContainer} />
             <Route path='/recipes/:id' component={CurrentRecipe} />
-            <Route path='/' render={(props) => <Search {...props} handleSearch={this.handleSearch} />} />
+            <Route path='/recipes' component={RecipesContainer} />
+            <Route path='/' render={props => <Search {...props} handleSearch={this.handleSearch} />} />
           </Switch>
         </Grid>
       </Router>
