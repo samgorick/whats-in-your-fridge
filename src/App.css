@@ -23,3 +23,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.modal {
+  height: auto;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  right: auto;
+}

@@ -1,10 +1,12 @@
-import { GET_CURRENT_RECIPE } from './Types'
+import { GET_CURRENT_RECIPE, RECIPE_NOT_FOUND } from './Types'
 
 export default function currentRecipeReducer(state = null, action){
   switch (action.type){
     case GET_CURRENT_RECIPE:
-      console.log('in reducer', action.steps)
       return action.steps
+
+    case RECIPE_NOT_FOUND:
+      return action.error
 
     default: 
       return state

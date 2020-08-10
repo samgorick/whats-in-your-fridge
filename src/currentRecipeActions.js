@@ -1,4 +1,4 @@
-import { GET_CURRENT_RECIPE } from './Types'
+import { GET_CURRENT_RECIPE, RECIPE_NOT_FOUND } from './Types'
 
 const ENDPOINT = 'https://api.spoonacular.com/recipes'
 
@@ -7,8 +7,11 @@ export function getCurrentRecipe(id) {
     fetch(`${ENDPOINT}/${id}/analyzedInstructions?apiKey=8eba26281c65412ab5d42b0dff17c3ae`)
       .then(resp => resp.json())
       .then(recipe => {
-        console.log(recipe[0].steps)
-        dispatch({ type: GET_CURRENT_RECIPE, steps: recipe[0].steps})
+        if (recipe.length > 0) {
+          dispatch ({ type: GET_CURRENT_RECIPE, steps: recipe[0].steps}) 
+        } else{
+          dispatch({ type: RECIPE_NOT_FOUND, error: {error: 'Sorry, that recipe could not be found, try another!'}}) 
+        }
       });
   };
 }
