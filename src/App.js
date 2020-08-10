@@ -3,35 +3,29 @@ import LogoComponent from './LogoComponent';
 import Search from './Search';
 import RecipesContainer from './RecipesContainer';
 import CurrentRecipe from './CurrentRecipe';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import { connect } from 'react-redux';
 import { getRecipes } from './recipeActions';
-import {Grid, Card } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 
 class App extends React.Component {
-  handleSearch = ingredients => {
-    this.props.getRecipes(ingredients);
+  handleSearch = (ingredients, history) => {
+    this.props.getRecipes(ingredients, history);
   };
 
   render() {
     return (
-      <div>
+      <Router>
         <LogoComponent />
         <Grid textAlign='center' style={{ height: '100vh' }}>
-          <Grid.Column width='4'>
-            <Search handleSearch={this.handleSearch} />
-          </Grid.Column>
-          <Grid.Column width='14'>
-            {this.props.currentRecipe ? (
-              <CurrentRecipe />
-            ) : (
-              <Card.Group itemsPerRow={4} stackable>
-                <RecipesContainer />
-              </Card.Group>
-            )}
-            </Grid.Column>
+          <Switch>
+            <Route path='/recipes' component={RecipesContainer} />
+            <Route path='/recipes/:id' component={CurrentRecipe} />
+            <Route path='/' render={(props) => <Search {...props} handleSearch={this.handleSearch} />} />
+          </Switch>
         </Grid>
-      </div>
+      </Router>
     );
   }
 }

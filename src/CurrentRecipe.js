@@ -27,7 +27,6 @@ class CurrentRecipe extends React.Component {
   render(){
     return(
       <Grid width={14} centered>
-    {console.log(this.props.currentRecipe.error)}
     {this.props.currentRecipe.error ? (
       <Modal
         open={this.state.modalOpen}
