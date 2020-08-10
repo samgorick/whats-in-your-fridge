@@ -7,7 +7,7 @@ const RecipeSummary = props => (
     <Card.Content>
       <Card.Header>{props.recipe.title}</Card.Header>
     </Card.Content>
-    <Card.Description textAlign='left'>
+    <Card.Description textAlign='left' style={{ marginBottom: 10 }}>
       <strong>You already have:</strong>
       <List bulleted>
         {props.recipe.usedIngredients.map((ing, idx) => (
