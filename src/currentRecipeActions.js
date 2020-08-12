@@ -1,11 +1,12 @@
 import { GET_CURRENT_RECIPE, RECIPE_NOT_FOUND } from './Types'
 
+const API_KEY = process.env.REACT_APP_API_KEY
+
 const ENDPOINT = 'https://api.spoonacular.com/recipes'
 
 export function getCurrentRecipe(id, history) {
   return dispatch => {
-    console.log(id)
-    fetch(`${ENDPOINT}/${id}/information?apiKey=8eba26281c65412ab5d42b0dff17c3ae`)
+    fetch(`${ENDPOINT}/${id}/information?apiKey=${API_KEY}`)
       .then(resp => resp.json())
       .then(recipe => {
         if (recipe) {

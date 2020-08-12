@@ -1,6 +1,8 @@
 import { GET_RECIPES } from './Types';
 
-const ENDPOINT = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=8eba26281c65412ab5d42b0dff17c3ae';
+const API_KEY = process.env.REACT_APP_API_KEY
+
+const ENDPOINT = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}`;
 
 export function getRecipes(ingredients, history) {
   return dispatch => {
