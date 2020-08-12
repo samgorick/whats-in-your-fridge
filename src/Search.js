@@ -15,7 +15,7 @@ const Search = props => (
             onBlur={handleBlur}
             value={values.ingredients}
           />
-          <Button fluid color='teal' type='submit' style={{ marginBottom: 20 }}>
+          <Button fluid type='submit' style={{ marginBottom: 20, backgroundColor: '#7D1D3F', color: 'white' }}>
             Get Recipes!
           </Button>
         </Form>
