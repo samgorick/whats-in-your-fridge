@@ -41,7 +41,7 @@ class CurrentRecipe extends React.Component {
     } = this.props.currentRecipe;
 
     return (
-      <Grid width={14} centered celled='internally' columns='equal'>
+      <Grid width={10} style={{borderColor: 'black', borderWidth: '1px'}} centered celled='internally' columns='equal'>
         {error ? (
           <Modal
             open={this.state.modalOpen}
@@ -55,19 +55,19 @@ class CurrentRecipe extends React.Component {
         ) : (
           <>
             <Grid.Row>
-              <Grid.Column width={7} verticalAlign='middle'>
+              <Grid.Column width={5} verticalAlign='middle'>
                 <Image src={image} />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-              <Grid.Column width={7} verticalAlign='middle'>
+              <Grid.Column width={5} verticalAlign='middle'>
                 <Header as='h1'>{title}</Header>
                 <Header as='h3'>Serves: {servings}</Header>
                 <Header as='h3'>Ready in {readyInMinutes} Minutes</Header>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={2}>
-              <Grid.Column width={4}>
+              <Grid.Column width={2}>
                 <Header as='h3'>At a Glance:</Header>
                 {vegetarian ? <Label>Vegetarian</Label> : null}
                 {vegan ? <Label>Vegan</Label> : null}
@@ -75,13 +75,13 @@ class CurrentRecipe extends React.Component {
                 {veryHealthy ? <Label>Healthy</Label> : null}
                 {cheap ? <Label>Cheap</Label> : null}
               </Grid.Column>
-              <Grid.Column width={10}>
+              <Grid.Column width={7}>
                 <Header as='h3'>Dish summary:</Header>
                 <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(summary) }}></div>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns={2}>
-              <Grid.Column width={7}>
+              <Grid.Column width={5}>
                 <Header as='h3'>Ingredients</Header>
                 <List bulleted size='large' style={{ textAlign: 'left' }}>
                   {extendedIngredients.map((ing, index) => (
@@ -89,7 +89,7 @@ class CurrentRecipe extends React.Component {
                   ))}
                 </List>
               </Grid.Column>
-              <Grid.Column width={7}>
+              <Grid.Column width={5}>
                 <Header as='h3'>Instructions</Header>
                 <List ordered divided size='large' style={{ textAlign: 'left' }}>
                   {analyzedInstructions[0].steps.map((step, index) => (

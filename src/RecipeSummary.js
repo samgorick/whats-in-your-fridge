@@ -23,7 +23,7 @@ const RecipeSummary = props => (
         ))}
       </List>
     </Card.Description>
-    <Button attached='bottom' color='teal' onClick={() => props.getCurrentRecipe(props.recipe.id, props.history)}>
+    <Button attached='bottom' style={{backgroundColor: '#7D1D3F', color: 'white'}} onClick={() => props.getCurrentRecipe(props.recipe.id, props.history)}>
       See recipe
     </Button>
   </Card>

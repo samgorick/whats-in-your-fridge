@@ -5,7 +5,7 @@ import { Grid, Form, Button } from 'semantic-ui-react';
 const Search = props => (
   <Formik initialValues={{ ingredients: '' }} onSubmit={values => props.handleSearch(values, props.history)}>
     {({ values, handleChange, handleBlur, handleSubmit }) => (
-      <Grid.Column width='4'>
+      <Grid.Column width='6'>
         <Form size='large' onSubmit={handleSubmit}>
           <Form.Input
             type='text'
